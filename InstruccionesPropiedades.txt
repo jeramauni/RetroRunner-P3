@@ -1,0 +1,3 @@
+PARA PODER EJECUTAR EL PROYECTO
+
+Propiedades -> Depuracion -> Directorio De Trabajo -> $(SolutionDir)WeirdEngine\WeirdEngine\exes
