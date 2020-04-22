@@ -1,27 +1,22 @@
-#include <GameManager.h>
+#include <WEManager.h>
 
 #include "Game.h"
-#include "InputListener.h"
 
 Game::Game() {
-	_gm = new GameManager();
-	input = new InputListener(_gm);
+	_weM = new WEManager();
 }
 
 Game::~Game() {
-	delete _gm;
-	delete input;
+	delete _weM;
 }
 
 void Game::Init() {
 	// Iniciamos el gm
-	_gm->Init();
-	// Añadimos al controlador de input las teclas que se usaran en este juego
-	_gm->getInputMg()->addKeyListener(input, "RetroRunnerKeys");
+	_weM->Init();
 	// Generamos la escena
-	_gm->generateScene("map.txt");
+	_weM->generateScene("map.txt");
 }
 
 bool Game::update() {
-	return _gm->update();
+	return _weM->update();
 }

@@ -84,8 +84,8 @@
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
     <TargetName>$(ProjectName)_debug</TargetName>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)WeirdEngine\build\lib\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -94,8 +94,8 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)WeirdEngine\build\lib\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
