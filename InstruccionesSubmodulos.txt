@@ -1,7 +1,29 @@
-Al hacer clone o pull habras obtenido los directorios de RetroRunner con toda su info.
-Sin embargo WeirdEngine deberia estar vacio si es el primer clone que haces.
+Toda la info : https://git-scm.com/book/es/v2/Herramientas-de-Git-Submódulos
+
+*IMPORTANTE*
+Al hacer clone habras obtenido los directorios de RetroRunner con toda su info.
+Sin embargo WeirdEngine deberia estar vacio.
 
 Debes ejecutar 2 comandos para obtener los archivos.
 *git submodule init* -> Inicializara el archivo de configuracion local
 *git submodule update* -> Buscar todos los datos del motor y que verifique el commit adecuado que figura
 en el superproyecto.
+
+*IMPORTANTE*
+Trabajando en el proyecto con submodulos - Obtener los cambios del submodulo
+
+La manera mas sencilla de actualizar los cambios realizados en el submodulo es a traves de 
+"git submodule update --remote", git ira a los submodulos y buscara y actualizara todo.
+
+Si quieres hacerlo paso a paso y ver los commits que cambian debes:
+
+Acceder al directorio del submodulo y ejecutar "git fetch" y "git merge".
+Si ahora vuelves al directorio del proyecto principal y ejecutas "git diff --submodule" puedes ver
+que el submodulo se actualizo y obtener la lista de commits que se agregaron.
+
+*IMPORTANTE*
+Trabajando en los submodulos del proyecto.
+
+Si deseas cambiar los archivos en uno de los submodulos y luego subirlo a su respectivo repositorio lo puedes
+hacer, para ello simplemente accede al directorio del submodulo y ejecuta un commit normal. Los cambios
+realizados deberian actualizarse en el repositorio del submodulo.
