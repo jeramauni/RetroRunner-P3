@@ -1,0 +1,3 @@
+[submodule "WeirdEngine"]
+	path = WeirdEngine
+	url = https://github.com/jeramauni/Proyecto-3.git

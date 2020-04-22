@@ -1,0 +1,7 @@
+Al hacer clone o pull habras obtenido los directorios de RetroRunner con toda su info.
+Sin embargo WeirdEngine deberia estar vacio si es el primer clone que haces.
+
+Debes ejecutar 2 comandos para obtener los archivos.
+*git submodule init* -> Inicializara el archivo de configuracion local
+*git submodule update* -> Buscar todos los datos del motor y que verifique el commit adecuado que figura
+en el superproyecto.
