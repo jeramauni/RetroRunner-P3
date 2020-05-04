@@ -4,6 +4,7 @@
 #pragma once
 
 class WEManager;
+//class Scene;
 
 class Game {
 public:
@@ -15,6 +16,11 @@ public:
 	bool update();
 
 private:
+
+	void GenerateMainScene();
+
+
 	WEManager* _weM;
+	//Scene* _activeScene;
 };
 #endif
