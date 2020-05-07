@@ -2,6 +2,7 @@
 
 #include <InputListener.h>
 #include "InputComponent.h"
+class Vector3;
 
 class EntityC;
 
@@ -35,6 +36,9 @@ public:
 	virtual PlayerInputListener* getKeyListener();
 	virtual InputMouseListener* getMouseListener();
 
+	//Esto está aquí por que necesito acceder a ella desde PlayerInputListener, solo hasta 
+	//que se pueden usar mensajes
+	
 private:
 	PlayerInputListener* _listener;
 };

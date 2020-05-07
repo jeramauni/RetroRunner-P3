@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "Container.h"
-#include "Messages_defs.h"
-#include "ComponentFactory.h"
+#include <Container.h>
+#include <Messages_defs.h>
+#include <ComponentFactory.h>
 
 CREATE_REGISTER(PlaySceneInput);
 
