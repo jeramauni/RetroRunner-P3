@@ -1,7 +1,10 @@
 #include <WEManager.h>
-//#include <Scene.h>
 
 #include "Game.h"
+
+#include <ComponentFactory.h>
+#include "PlayerInputComponent.h"
+#include "PlaySceneInputComponent.h"
 
 Game::Game() {
 	_weM = new WEManager();
@@ -19,12 +22,15 @@ void Game::Init() {
 }
 
 bool Game::update() {
-	return _weM->update();
+	if (_weM->update()) 
+		return true;
+	else 
+		return false;
 }
 
 void Game::GenerateMainScene() {
 	// Generamos la escena
-	_weM->generateScene("map.txt");
+	_weM->generateScene("map", "entities");
 
 	// Colocamos la camara
 	_weM->moveCam("MainCam", 250, 400, -700);

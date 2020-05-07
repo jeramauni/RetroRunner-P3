@@ -4,7 +4,6 @@
 #pragma once
 
 class WEManager;
-//class Scene;
 
 class Game {
 public:
@@ -21,6 +20,5 @@ private:
 
 
 	WEManager* _weM;
-	//Scene* _activeScene;
 };
 #endif

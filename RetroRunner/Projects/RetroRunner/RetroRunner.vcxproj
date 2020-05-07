@@ -20,10 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\RetroRunner\Header Files\Game.h" />
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerInputComponent.h" />
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\PlaySceneInputComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp" />
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerInputComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\RetroRunner.cpp" />
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\PlaySceneInputComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -84,7 +88,7 @@
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
     <TargetName>$(ProjectName)_debug</TargetName>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\Build\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -94,7 +98,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\Build\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,6 +120,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\ogre-1.12.5\OgreMain\include;$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\ogre-1.12.5\Build\include;$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +153,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\ogre-1.12.5\OgreMain\include;$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\ogre-1.12.5\Build\include;$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
