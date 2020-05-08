@@ -3,8 +3,10 @@
 #include <iostream>
 
 #include <Vector3.h>
-//#include <Messages_defs.h>
-#include <PhysicsComponent.h>
+#include <Messages_decl.h>
+#include <Messages_defs.h>
+
+//#include <PhysicsComponent.h>
 #include "Container.h"
 #include "ComponentFactory.h"
 
@@ -39,26 +41,30 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
     switch (ke.key) {
     case OIS::KC_W:
         std::cout << "Adelante\n";
-        /*_owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 10)));*/
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 20)));
         
         //Implementar en cada uno de estos el comportamiento con physics
-        static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0,0,10));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0,0,10));
         break;
     case OIS::KC_S:
         std::cout << "Atras\n";
-        static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0, 0, -10));
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -20)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0, 0, -10));
         break;
     case OIS::KC_A:
         std::cout << "Izquierda\n";
-        static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(10, 0, 0));
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(20, 0, 0)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(10, 0, 0));
         break;
     case OIS::KC_D:
         std::cout << "Derecha\n";
-        static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(-10, 0, 0));
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-20, 0, 0)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(-10, 0, 0));
         break;
     case OIS::KC_SPACE:
         std::cout << "Barra Espaciadora\n";
-        static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->jump(Vector3(0, 500, 0));
+        _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 500, 0)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->jump(Vector3(0, 500, 0));
         break;
     default:
         break;

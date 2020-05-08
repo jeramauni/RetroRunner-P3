@@ -1,11 +1,10 @@
 #pragma once
-
-#include <PhysicsComponent.h>
+#include <Component.h>
 
 class Container;
+class PhysicsComponent;
 
-//InputComponent es la clase base de todos los componentes de Input
-class PlayerMoveComponent : public PhysicsComponent {
+class PlayerMoveComponent : public Component {
 public:
 	PlayerMoveComponent(Container* e);
 	~PlayerMoveComponent() {};
@@ -18,4 +17,6 @@ public:
 	void receive(Container* c, const msg::Message& _msg);
 
 private:
+	PhysicsComponent* _pc;
+
 };
