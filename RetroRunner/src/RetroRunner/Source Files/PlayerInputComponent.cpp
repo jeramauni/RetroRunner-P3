@@ -38,6 +38,7 @@ PlayerInputListener::PlayerInputListener(Container* ow) {
 PlayerInputListener::~PlayerInputListener() {}
 
 bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
+
     switch (ke.key) {
     case OIS::KC_W:
         std::cout << "Adelante\n";
@@ -74,5 +75,37 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
 }
 
 bool PlayerInputListener::keyReleased(const OIS::KeyEvent& ke) {
-    return false;
+    std::cout << "PlayerInput Relased\n";
+    switch (ke.key) {
+    case OIS::KC_W:
+        std::cout << "Adelante back\n";
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -20)));
+
+        //Implementar en cada uno de estos el comportamiento con physics
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0,0,10));
+        break;
+    case OIS::KC_S:
+        std::cout << "Atras\n";
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 20)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(0, 0, -10));
+        break;
+    case OIS::KC_A:
+        std::cout << "Izquierda\n";
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-20, 0, 0)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(10, 0, 0));
+        break;
+    case OIS::KC_D:
+        std::cout << "Derecha\n";
+        _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(20, 0, 0)));
+        //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->move(Vector3(-10, 0, 0));
+        break;
+    //case OIS::KC_SPACE:
+    //    std::cout << "Barra Espaciadora\n";
+    //    _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 500, 0)));
+    //    //static_cast<PhysicsComponent*>(_owner->getComponent("Physics"))->jump(Vector3(0, 500, 0));
+     //   break;
+    default:
+        break;
+    }
+    return true;
 }

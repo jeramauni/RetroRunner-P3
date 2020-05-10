@@ -53,5 +53,5 @@ bool WEInputListener::keyPressed(const OIS::KeyEvent& ke) {
 }
 
 bool WEInputListener::keyReleased(const OIS::KeyEvent& ke) {
-    return false;
+    return true;
 }
