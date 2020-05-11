@@ -22,6 +22,10 @@ void PlayerMoveComponent::Init(std::unordered_map<std::string, std::string>& par
 
 void PlayerMoveComponent::update(Container* c, float time)
 {
+	if (_pc->isColliding())
+	{
+		std::cout << "[" << _pc->GetID() << "]: " << "Está colisionando" << std::endl;
+	}
 	_pc->move(*_velocity);
 }
 

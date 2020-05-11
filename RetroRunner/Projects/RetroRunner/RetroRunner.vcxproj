@@ -100,7 +100,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\PhysicsEngine\Header Files;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\Build\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
