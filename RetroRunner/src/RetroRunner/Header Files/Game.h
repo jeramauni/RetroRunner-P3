@@ -15,10 +15,13 @@ public:
 	bool update();
 
 private:
+	WEManager* _weM;
 
 	void GenerateMainScene();
+	void GenerateMenuScene();
 
-
-	WEManager* _weM;
+	//Eventos
+	static void EventEnd();
+	static void EventStart();
 };
 #endif

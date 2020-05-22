@@ -1,10 +1,11 @@
 #include <WEManager.h>
-
 #include "Game.h"
 
-#include <ComponentFactory.h>
-#include "PlayerInputComponent.h"
-#include "PlaySceneInputComponent.h"
+#include <CEGUI/CEGUI.h> //FEISIMO
+
+#include <Utilities/Vector4.h>
+
+//#include <iostream>
 
 Game::Game() {
 	_weM = new WEManager();
@@ -18,7 +19,8 @@ void Game::Init() {
 	// Iniciamos el gm
 	_weM->Init();
 	
-	GenerateMainScene();
+	GenerateMenuScene();
+	//GenerateMainScene();
 }
 
 bool Game::update() {
@@ -29,11 +31,27 @@ bool Game::update() {
 }
 
 void Game::GenerateMainScene() {
+	_weM->setGUIVisible(false);
 	// Generamos la escena
 	_weM->generateScene("map", "entities");
+}
 
-	// Colocamos la camara
-	_weM->moveCam("MainCam", 250, 400, -700);
-	_weM->camLookAt("MainCam", 250, 0, 0);
-	_weM->rotateCam("MainCam", 1, 0, 0, 180);
+void Game::GenerateMenuScene() {
+	_weM->generateScene("menu", "entities");
+	_weM->setGUIVisible(true);
+	_weM->loadLayout("EmptyWindow");
+
+	// Añadir a los botones los eventos correspondientes
+	_weM->createButton("TaharezLook/Button", "PlayButton", "PLAY", { 0.4f, 0.3f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->createButton("TaharezLook/Button", "ExitButton", "EXIT", { 0.4f, 0.5f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->addEventToButton("ExitButton", &Game::EventEnd);
+}
+
+void Game::EventEnd() {
+	//std::cout << "ENDINNNNG\n";
+	WEManager::close();
+}
+
+void Game::EventStart() {
+	//Game::GenerateMainScene();
 }

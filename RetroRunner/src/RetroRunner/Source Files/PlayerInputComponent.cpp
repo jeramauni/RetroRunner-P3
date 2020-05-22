@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include <Vector3.h>
+#include <Utilities/Vector3.h>
 #include <Messages_decl.h>
 #include <Messages_defs.h>
 
