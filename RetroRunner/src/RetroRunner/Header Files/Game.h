@@ -11,8 +11,9 @@ public:
 	~Game();
 
 	void Init();
-
 	bool update();
+
+	static Game instance;
 
 private:
 	WEManager* _weM;

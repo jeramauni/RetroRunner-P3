@@ -1,11 +1,11 @@
 #include <WEManager.h>
 #include "Game.h"
 
-#include <CEGUI/CEGUI.h> //FEISIMO
+#include <CEGUI/CEGUI.h>
 
 #include <Utilities/Vector4.h>
 
-//#include <iostream>
+Game Game::instance;
 
 Game::Game() {
 	_weM = new WEManager();
@@ -19,8 +19,8 @@ void Game::Init() {
 	// Iniciamos el gm
 	_weM->Init();
 	
+	//Escena de menus
 	GenerateMenuScene();
-	//GenerateMainScene();
 }
 
 bool Game::update() {
@@ -43,15 +43,15 @@ void Game::GenerateMenuScene() {
 
 	// Añadir a los botones los eventos correspondientes
 	_weM->createButton("TaharezLook/Button", "PlayButton", "PLAY", { 0.4f, 0.3f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->addEventToButton("PlayButton", &Game::EventStart);
 	_weM->createButton("TaharezLook/Button", "ExitButton", "EXIT", { 0.4f, 0.5f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
 	_weM->addEventToButton("ExitButton", &Game::EventEnd);
 }
 
 void Game::EventEnd() {
-	//std::cout << "ENDINNNNG\n";
-	WEManager::close();
+	instance._weM->close();
 }
 
 void Game::EventStart() {
-	//Game::GenerateMainScene();
+	instance.GenerateMainScene();
 }

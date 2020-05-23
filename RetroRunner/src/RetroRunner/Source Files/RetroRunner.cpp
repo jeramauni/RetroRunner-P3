@@ -5,13 +5,12 @@
 #include "Game.h"
 
 int main() {
-		Game _g = Game();
-		_g.Init();
+	Game::instance.Init();
 
-		//Bucle del juego
-		while (_g.update()) {}
+	//Bucle del juego
+	while (Game::instance.update()) {}
 
-		std::cout << "end of the program" << std::endl;
+	std::cout << "end of the program" << std::endl;
 
 	return 0;
 }
