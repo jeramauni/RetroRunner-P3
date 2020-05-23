@@ -90,7 +90,7 @@
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
     <TargetName>$(ProjectName)_debug</TargetName>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\PhysicsEngine\Header Files;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\PhysicsEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\AudioSystem\Header Files;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\Build\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -100,7 +100,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)exes</OutDir>
     <IntDir>$(SolutionDir)\inter\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
-    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\PhysicsEngine\Header Files;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)src\RetroRunner\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\WeirdEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\DataManager\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\Input\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\PhysicsEngine\Header Files;$(SolutionDir)WeirdEngine\WeirdEngine\src\AudioSystem\Header Files;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)WeirdEngine\WeirdEngine\build\libs\$(Platform)\$(Configuration);$(SolutionDir)WeirdEngine\WeirdEngine\Dependencias\OIS\Build\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -127,7 +127,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>WeirdEngine_debug.lib;DataManager.lib;Input.lib;PhysicsEngine_debug.lib;RenderSystem_debug.lib;OIS_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WeirdEngine_debug.lib;DataManager.lib;Input.lib;PhysicsEngine_debug.lib;RenderSystem_debug.lib;OIS_d.lib;AudioSystem_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,7 +162,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>WeirdEngine.lib;DataManager.lib;Input.lib;PhysicsEngine.lib;RenderSystem.lib;OIS.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WeirdEngine.lib;DataManager.lib;Input.lib;PhysicsEngine.lib;RenderSystem.lib;OIS.lib;AudioSystem.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
