@@ -19,12 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\AnclaEffectComponent.h" />
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\CollisionEffectComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\Game.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerInputComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerMoveComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlaySceneInputComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\AnclaEffectComponent.cpp" />
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\CollisionEffectComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerInputComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerMoveComponent.cpp" />

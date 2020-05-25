@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\Effects">
+      <UniqueIdentifier>{1d4fe996-9c82-43bc-867e-a0c46379f543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Effects">
+      <UniqueIdentifier>{fb099035-347d-4412-92e8-83a2c88a5fc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\RetroRunner\Header Files\Game.h">
@@ -26,6 +32,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerMoveComponent.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\AnclaEffectComponent.h">
+      <Filter>Archivos de encabezado\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\CollisionEffectComponent.h">
+      <Filter>Archivos de encabezado\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +55,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerMoveComponent.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\AnclaEffectComponent.cpp">
+      <Filter>Archivos de origen\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\CollisionEffectComponent.cpp">
+      <Filter>Archivos de origen\Effects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
