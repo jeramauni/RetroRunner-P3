@@ -1,11 +1,12 @@
 #include "PlayerMoveComponent.h"
 
-#include <iostream>
 #include <Container.h>
 #include <Messages_defs.h>
 #include <PhysicsComponent.h>
 #include <ComponentFactory.h>
 #include <Utilities/Vector3.h>
+
+//#include <iostream>
 
 CREATE_REGISTER(PlayerMove);
 
@@ -70,7 +71,7 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg)
 				if (std::abs(_velocity->z) <= 10) _velocity->z = _velocity->z * 2;
 			}
 		}
-		else if (_m.type == "JumpEffect")
+		else if (_m._type == "JumpEffect")
 		{
 			if (slowedDown) {
 				_pc->jump(Vector3(0, 1000, 0));

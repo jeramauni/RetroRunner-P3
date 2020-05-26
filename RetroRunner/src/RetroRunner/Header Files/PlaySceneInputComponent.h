@@ -33,6 +33,4 @@ public:
 
 private:
 	WEInputListener* _listener;
-	OIS::KeyCode PauseMenu;
-	//OIS::KeyCode PauseMenu;
 };

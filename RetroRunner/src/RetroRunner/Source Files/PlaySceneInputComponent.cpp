@@ -1,10 +1,10 @@
 #include "PlaySceneInputComponent.h"
 
-#include <iostream>
-
 #include <Container.h>
 #include <Messages_defs.h>
 #include <ComponentFactory.h>
+
+#include "Game.h"
 
 CREATE_REGISTER(PlaySceneInput);
 
@@ -14,9 +14,7 @@ PlaySceneInputComponent::PlaySceneInputComponent(Container* e) : InputComponent(
     _parent->getWEManager()->addKeyListener(_listener, _name);
 }
 
-void PlaySceneInputComponent::Init(std::unordered_map<std::string, std::string>& param) {
-    PauseMenu = OIS::KC_ESCAPE;
-}
+void PlaySceneInputComponent::Init(std::unordered_map<std::string, std::string>& param) {}
 
 // Cuando reacciona al teclado
 WEInputListener* PlaySceneInputComponent::getKeyListener() {
@@ -38,12 +36,13 @@ WEInputListener::~WEInputListener() {}
 bool WEInputListener::keyPressed(const OIS::KeyEvent& ke) {
     switch (ke.key) {
     case OIS::KC_ESCAPE:
-        _owner->globalSend(this, msg::Close_Win(msg::WEManager, msg::Broadcast));
-        break;
-    case OIS::KC_SPACE:
-        std::cout << "Funciona\n";
-        //_owner->localSend(this, msg::Prueba(msg::Player, msg::Broadcast));
-        //_owner->send(this, msg::Prueba(msg::WEManager, msg::Broadcast));
+        _owner->globalSend(this, msg::SwitchComp(msg::None, msg::Broadcast));
+        if (_owner->getWEManager()->getGUIvis()) {
+            _owner->getWEManager()->setGUIVisible(false);
+        }
+        else {
+            Game::instance.GeneratePauseScene();
+        }
         break;
     default:
         break;

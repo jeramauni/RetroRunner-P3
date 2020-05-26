@@ -31,13 +31,10 @@ public:
 	void update(Container* c, float time) {};
 
 	//Receive implementation
-	void receive(Container* c, const msg::Message& msg) {};
+	void receive(Container* c, const msg::Message& msg);
 
 	virtual PlayerInputListener* getKeyListener();
 	virtual InputMouseListener* getMouseListener();
-
-	//Esto está aquí por que necesito acceder a ella desde PlayerInputListener, solo hasta 
-	//que se pueden usar mensajes
 	
 private:
 	PlayerInputListener* _listener;

@@ -14,15 +14,18 @@ public:
 	bool update();
 
 	static Game instance;
+	void GenerateMainScene();
+	void GenerateMenuScene();
+	void GeneratePauseScene();
 
 private:
 	WEManager* _weM;
 
-	void GenerateMainScene();
-	void GenerateMenuScene();
 
 	//Eventos
 	static void EventEnd();
 	static void EventStart();
+	static void EventContinue();
+	static void EventMainMenu();
 };
 #endif
