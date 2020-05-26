@@ -21,4 +21,5 @@ private:
 	PhysicsComponent* _pc;
 	Vector3* _velocity;
 	bool slowedDown = false;
+	bool onTheFloor = false;
 };

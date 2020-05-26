@@ -39,6 +39,9 @@
     <ClInclude Include="..\..\src\RetroRunner\Header Files\CollisionEffectComponent.h">
       <Filter>Archivos de encabezado\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\FloorEffectComponent.h">
+      <Filter>Archivos de encabezado\Effects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp">
@@ -60,6 +63,9 @@
       <Filter>Archivos de origen\Effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\CollisionEffectComponent.cpp">
+      <Filter>Archivos de origen\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\FloorEffectComponent.cpp">
       <Filter>Archivos de origen\Effects</Filter>
     </ClCompile>
   </ItemGroup>

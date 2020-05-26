@@ -24,9 +24,9 @@ void PlayerMoveComponent::Init(std::unordered_map<std::string, std::string>& par
 void PlayerMoveComponent::update(Container* c, float time)
 {
 	_pc->checkColliding();
-	if (_pc->isColliding())
+	if (std::abs(_pc->linearVelocity().y) > 1.0f)
 	{
-		//std::cout << "[" << _pc->GetID() << "]: " << "Está colisionando" << std::endl;
+		onTheFloor = false;
 	}
 	_pc->move(*_velocity);
 }
@@ -49,7 +49,7 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg)
 	}
 	case msg::JUMP: {
 		const msg::Jump _m = static_cast<const msg::Jump&>(_msg);
-		_pc->jump(_m._dir);
+		if(onTheFloor) _pc->jump(_m._dir);
 		//w_velocity += _m._dir;
 		break;
 	}
@@ -76,6 +76,10 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg)
 			if (slowedDown) {
 				_pc->jump(Vector3(0, 1000, 0));
 			}
+		}
+		else if (_m._type == "FloorEffect")
+		{
+			if(_m._doIt) onTheFloor = true;
 		}
 		break;
 	}
