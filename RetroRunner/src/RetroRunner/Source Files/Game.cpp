@@ -8,6 +8,9 @@ Game Game::instance;
 
 Game::Game() {
 	_weM = new WEManager();
+	changeScene = false;
+	fromNivel = false;
+	generateScene = Escenas::None;
 }
 
 Game::~Game() {
@@ -23,18 +26,37 @@ void Game::Init() {
 }
 
 bool Game::update() {
-	if (_weM->update())	return true;
-	else return false;
+	bool state = _weM->update();
+	if (changeScene) {
+		switch (generateScene) {
+		case Escenas::MainMenu:
+			if(fromNivel) _weM->popScene();
+			GenerateMenuScene();
+			break;
+		case Escenas::Nivel:
+			GenerateMainScene();
+			break;
+		case Escenas::Pause:
+			GeneratePauseScene();
+			break;
+		default:
+			break;
+		}
+	}
+	return state;
 }
 
 void Game::GenerateMainScene() {
+	changeScene = false;
 	_weM->setGUIVisible(false);
 	// Generamos la escena
-	_weM->generateScene("nivel1", "nivel1");
+	_weM->generateScene("nivel1", "nivel1", Vector4{ 0.2, 0.0, 0.2, 0.8 });
 }
 
 void Game::GenerateMenuScene() {
-	_weM->generateScene("menu", "menu");
+	changeScene = false;
+	_weM->generateScene("menu", "menu", Vector4{ 0.8, 0.8, 0.8, 0.8 });
+
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
 
@@ -46,11 +68,11 @@ void Game::GenerateMenuScene() {
 }
 
 void Game::GeneratePauseScene() {
-	//_weM->generateScene("pause", "pause");
+	changeScene = false;
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
 
-	// A�adir a los botones los eventos correspondientes
+	// Añadir a los botones los eventos correspondientes
 	_weM->createButton("TaharezLook/Button", "ContinueButton", "CONTINUE", { 0.4f, 0.3f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
 	_weM->addEventToButton("ContinueButton", &Game::EventContinue);
 	_weM->createButton("TaharezLook/Button", "MainMenuButton", "MAIN MENU", { 0.4f, 0.5f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
@@ -63,8 +85,9 @@ void Game::EventContinue() {
 }
 
 void Game::EventMainMenu() {
-	instance._weM->popScene();
-	instance.GenerateMenuScene();
+	instance.changeScene = true;
+	instance.fromNivel = true;
+	instance.generateScene = Escenas::MainMenu;
 }
 
 void Game::EventEnd() {
@@ -72,5 +95,6 @@ void Game::EventEnd() {
 }
 
 void Game::EventStart() {
-	instance.GenerateMainScene();
+	instance.changeScene = true;
+	instance.generateScene = Escenas::Nivel;
 }

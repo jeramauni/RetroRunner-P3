@@ -29,6 +29,9 @@ void PlayerInputComponent::receive(Container* c, const msg::Message& msg) {
     case msg::SWITCH_COMP:
         _parent->activeComponent(_name);
         break;
+    case msg::SCENE_OVER:
+        _parent->getWEManager()->removeMouseListener(_name);
+        break;
     default:
         break;
     }
