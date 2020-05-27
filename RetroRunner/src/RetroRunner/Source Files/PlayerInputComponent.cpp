@@ -11,6 +11,7 @@
 #include "ComponentFactory.h"
 
 #include <iostream>
+#include <string>
 
 CREATE_REGISTER(PlayerInput);
 
@@ -30,7 +31,7 @@ void PlayerInputComponent::receive(Container* c, const msg::Message& msg) {
         _parent->activeComponent(_name);
         break;
     case msg::SCENE_OVER:
-        _parent->getWEManager()->removeMouseListener(_name);
+        _parent->getWEManager()->removeKeyListener(_name);
         break;
     default:
         break;
@@ -58,17 +59,21 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
         case OIS::KC_W:
             //std::cout << "Adelante\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 20)));
+            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
             break;
         case OIS::KC_S:
             //std::cout << "Atras\n";
+            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -20)));
             break;
         case OIS::KC_A:
             //std::cout << "Izquierda\n";
+            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(20, 0, 0)));
             break;
         case OIS::KC_D:
             //std::cout << "Derecha\n";
+            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-20, 0, 0)));
             break;
         case OIS::KC_SPACE:
