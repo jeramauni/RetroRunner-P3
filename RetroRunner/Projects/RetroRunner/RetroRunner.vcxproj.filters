@@ -45,6 +45,9 @@
     <ClInclude Include="..\..\src\RetroRunner\Header Files\LavaEffectComponent.h">
       <Filter>Archivos de encabezado\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\ShurikenSpinComponent.h">
+      <Filter>Archivos de encabezado\Effects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp">
@@ -72,6 +75,9 @@
       <Filter>Archivos de origen\Effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\LavaEffectComponent.cpp">
+      <Filter>Archivos de origen\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\ShurikenSpinComponent.cpp">
       <Filter>Archivos de origen\Effects</Filter>
     </ClCompile>
   </ItemGroup>

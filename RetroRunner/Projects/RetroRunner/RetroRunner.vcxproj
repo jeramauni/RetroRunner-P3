@@ -27,6 +27,7 @@
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerInputComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerMoveComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlaySceneInputComponent.h" />
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\ShurikenSpinComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\AnclaEffectComponent.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerMoveComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\RetroRunner.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlaySceneInputComponent.cpp" />
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\ShurikenSpinComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
