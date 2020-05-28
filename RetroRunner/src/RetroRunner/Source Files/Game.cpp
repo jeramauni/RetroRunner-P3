@@ -56,11 +56,11 @@ void Game::GenerateMainScene() {
 	_weM->setGUIVisible(false);
 	// Generamos la escena
 	_weM->generateScene("nivel1", Vector4{ 0.2, 0.0, 0.2, 0.8 });
+	_weM->setSkyPlane("SkyPlane1");
 }
 
 void Game::GenerateMenuScene() {
 	_weM->generateScene("menu", Vector4{ 0.8, 0.8, 0.8, 0.8 });
-
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
 
