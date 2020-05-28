@@ -44,7 +44,10 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg) {
 	}
 	case msg::JUMP: {
 		const msg::Jump _m = static_cast<const msg::Jump&>(_msg);
-		if(onTheFloor) _pc->jump(_m._dir);
+		if (onTheFloor) {
+			_pc->jump(_m._dir);
+			_parent->localSend(this, msg::PlaySound(msg::None, msg::Broadcast, std::string("jumpSound")));
+		}
 		//w_velocity += _m._dir;
 		break;
 	}
