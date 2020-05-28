@@ -104,6 +104,7 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg) {
 			if (_m._doIt) onTheFloor = true;
 		}
 		else if (_m._type == "LavaEffect") {
+			_parent->getWEManager()->switchComponentsState();
 			_parent->getWEManager()->restart();
 		}
 		break;
