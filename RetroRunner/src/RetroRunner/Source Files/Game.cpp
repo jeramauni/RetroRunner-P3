@@ -96,6 +96,7 @@ void Game::EventMainMenu() {
 }
 
 void Game::EventRestart() {
+	instance._weM->setGUIVisible(false);
 	instance.changeScene = true;
 	instance.generateScene = Escenas::Restart;
 }
