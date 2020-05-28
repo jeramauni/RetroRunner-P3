@@ -6,7 +6,7 @@
 class WEManager;
 
 enum Escenas {
-	None, MainMenu, Nivel, Pause
+	None, Restart, MainMenu, Nivel, Pause
 };
 
 class Game {
@@ -30,6 +30,7 @@ private:
 	static void EventStart();
 	static void EventContinue();
 	static void EventMainMenu();
+	static void EventRestart();
 
 	// Controlador de escenas
 	int generateScene;

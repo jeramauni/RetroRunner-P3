@@ -26,11 +26,14 @@ void Game::Init() {
 }
 
 bool Game::update() {
-	bool state = _weM->update();
 	if (changeScene) {
+		changeScene = false;
 		switch (generateScene) {
 		case Escenas::MainMenu:
-			if(fromNivel) _weM->popScene();
+			if (fromNivel) {
+				fromNivel = false;
+				_weM->popScene();
+			}
 			GenerateMenuScene();
 			break;
 		case Escenas::Nivel:
@@ -39,23 +42,24 @@ bool Game::update() {
 		case Escenas::Pause:
 			GeneratePauseScene();
 			break;
+		case Escenas::Restart:
+			_weM->restart();
+			break;
 		default:
 			break;
 		}
 	}
-	return state;
+	return _weM->update();
 }
 
 void Game::GenerateMainScene() {
-	changeScene = false;
 	_weM->setGUIVisible(false);
 	// Generamos la escena
-	_weM->generateScene("nivel1", "nivel1", Vector4{ 0.2, 0.0, 0.2, 0.8 });
+	_weM->generateScene("nivel1", Vector4{ 0.2, 0.0, 0.2, 0.8 });
 }
 
 void Game::GenerateMenuScene() {
-	changeScene = false;
-	_weM->generateScene("menu", "menu", Vector4{ 0.8, 0.8, 0.8, 0.8 });
+	_weM->generateScene("menu", Vector4{ 0.8, 0.8, 0.8, 0.8 });
 
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
@@ -68,15 +72,16 @@ void Game::GenerateMenuScene() {
 }
 
 void Game::GeneratePauseScene() {
-	changeScene = false;
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
 
 	// Añadir a los botones los eventos correspondientes
-	_weM->createButton("TaharezLook/Button", "ContinueButton", "CONTINUE", { 0.4f, 0.3f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->createButton("TaharezLook/Button", "ContinueButton", "CONTINUE", { 0.4f, 0.2f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
 	_weM->addEventToButton("ContinueButton", &Game::EventContinue);
-	_weM->createButton("TaharezLook/Button", "MainMenuButton", "MAIN MENU", { 0.4f, 0.5f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->createButton("TaharezLook/Button", "MainMenuButton", "MAIN MENU", { 0.4f, 0.4f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
 	_weM->addEventToButton("MainMenuButton", &Game::EventMainMenu);
+	_weM->createButton("TaharezLook/Button", "ResetButton", "RESET LV", { 0.4f, 0.6f, 0.1f, 0.2f }, { 0.0, 0.0 ,0.0 ,0.0 });
+	_weM->addEventToButton("ResetButton", &Game::EventRestart);
 }
 
 void Game::EventContinue() {
@@ -88,6 +93,11 @@ void Game::EventMainMenu() {
 	instance.changeScene = true;
 	instance.fromNivel = true;
 	instance.generateScene = Escenas::MainMenu;
+}
+
+void Game::EventRestart() {
+	instance.changeScene = true;
+	instance.generateScene = Escenas::Restart;
 }
 
 void Game::EventEnd() {
