@@ -21,12 +21,14 @@ void PlayerMoveComponent::Init(std::unordered_map<std::string, std::string>& par
 	setUpdate();
 }
 
-void PlayerMoveComponent::update(Container* c, float time)
-{
+void PlayerMoveComponent::update(Container* c, float time) {
 	_pc->checkColliding();
-	if (std::abs(_pc->linearVelocity().y) > 1.0f)
-	{
+	if (std::abs(_pc->linearVelocity().y) > 1.0f) {
 		onTheFloor = false;
+	}
+
+	if (_pc->position().y < -300) {
+		_parent->getWEManager()->restart();
 	}
 
 	visionAngle = _parent->getNode()->getOrientation().getYaw().valueDegrees();
@@ -62,20 +64,16 @@ void PlayerMoveComponent::update(Container* c, float time)
 	{
 		_pc->move(Vector3(-maxVelocity * (cos(visionAngle - (3.14 / 4))), 0, -maxVelocity * (sin(visionAngle - (3.14 / 4)))));
 	}
-	else if (*_velocity == Vector3(0, 0, -1)) //IZQUIERDA
-	{
+	else if (*_velocity == Vector3(0, 0, -1)) { //IZQUIERDA
 		_pc->move(Vector3(-maxVelocity * (cos(visionAngle)), 0, -maxVelocity * (sin(visionAngle))));
 	}
-	else
-	{
+	else {
 		_pc->move(Vector3(0, 0, 0));
 	}
 }
 
-void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg)
-{
-	switch (_msg.type_)
-	{
+void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg) {
+	switch (_msg.type_) {
 	case msg::MOVE: {
 		const msg::Move _m = static_cast<const msg::Move&>(_msg);
 		Vector3 v = _m._dir;
@@ -92,21 +90,21 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg)
 	}
 	case msg::COLISION: {
 		const msg::Colision _m = static_cast<const msg::Colision&>(_msg);
-		if (_m._type == "AnclaEffect")
-		{
+		if (_m._type == "AnclaEffect") {
 			slowedDown = _m._doIt;
 			if (slowedDown) maxVelocity = maxVelocity / 2;
 			else maxVelocity = maxVelocity * 2;
 		}
-		else if (_m._type == "JumpEffect")
-		{
+		else if (_m._type == "JumpEffect") {
 			if (slowedDown) {
 				_pc->jump(Vector3(0, 1000, 0));
 			}
 		}
-		else if (_m._type == "FloorEffect")
-		{
+		else if (_m._type == "FloorEffect")	{
 			if (_m._doIt) onTheFloor = true;
+		}
+		else if (_m._type == "LavaEffect") {
+			_parent->getWEManager()->restart();
 		}
 		break;
 	}
