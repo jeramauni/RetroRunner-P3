@@ -72,9 +72,13 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
             //std::cout << "Derecha\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 1)));
             break;
+        case OIS::KC_Q:
+            //std::cout << "Derecha\n";
+            _owner->localSend(this, msg::Hability(msg::Player, msg::Broadcast, "Dash"));
+            break;
         case OIS::KC_SPACE:
             //std::cout << "Barra Espaciadora\n";
-            _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 5000, 0)));
+            _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 500, 0)));
             break;
         default:
             break;

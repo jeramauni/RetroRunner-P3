@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\src\RetroRunner\Header Files\FloorEffectComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\Game.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\LavaEffectComponent.h" />
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerDashComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerInputComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerMoveComponent.h" />
     <ClInclude Include="..\..\src\RetroRunner\Header Files\PlaySceneInputComponent.h" />
@@ -35,6 +36,7 @@
     <ClCompile Include="..\..\src\RetroRunner\Source Files\FloorEffectComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\LavaEffectComponent.cpp" />
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerDashComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerInputComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerMoveComponent.cpp" />
     <ClCompile Include="..\..\src\RetroRunner\Source Files\RetroRunner.cpp" />

@@ -86,6 +86,10 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg) {
 			_pc->push(_m._dir);
 			_parent->localSend(this, msg::PlaySound(msg::None, msg::Broadcast, std::string("jumpSound")));
 		}
+		else if(_m._dir.y <= 0)
+		{
+			_pc->push(_m._dir);
+		}
 		break;
 	}
 	case msg::COLISION: {

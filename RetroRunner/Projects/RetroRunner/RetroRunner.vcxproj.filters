@@ -48,6 +48,9 @@
     <ClInclude Include="..\..\src\RetroRunner\Header Files\ShurikenSpinComponent.h">
       <Filter>Archivos de encabezado\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\RetroRunner\Header Files\PlayerDashComponent.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\Game.cpp">
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\RetroRunner\Source Files\ShurikenSpinComponent.cpp">
       <Filter>Archivos de origen\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RetroRunner\Source Files\PlayerDashComponent.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
