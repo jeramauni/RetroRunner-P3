@@ -58,23 +58,19 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
         switch (ke.key) {
         case OIS::KC_W:
             //std::cout << "Adelante\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 20)));
-            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(1, 0, 0)));
             break;
         case OIS::KC_S:
             //std::cout << "Atras\n";
-            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -20)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-1, 0, 0)));
             break;
         case OIS::KC_A:
-            //std::cout << "Izquierda\n";
-            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(20, 0, 0)));
+            //std::cout << "Izquierda\n"; 
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -1)));
             break;
         case OIS::KC_D:
             //std::cout << "Derecha\n";
-            //std::cout << 20 * _owner->getNode()->getOrientation().y << "\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-20, 0, 0)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 1)));
             break;
         case OIS::KC_SPACE:
             //std::cout << "Barra Espaciadora\n";
@@ -88,24 +84,23 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
 }
 
 bool PlayerInputListener::keyReleased(const OIS::KeyEvent& ke) {
-    //std::cout << "PlayerInput Relased\n";
     if (_owner->hasComponent("PlayerInput")) {
         switch (ke.key) {
         case OIS::KC_W:
             //std::cout << "Adelante back\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -20)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-1, 0, 0)));
             break;
         case OIS::KC_S:
             //std::cout << "Atras\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 20)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(1, 0, 0)));
             break;
         case OIS::KC_A:
             //std::cout << "Izquierda\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-20, 0, 0)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 1)));
             break;
         case OIS::KC_D:
             //std::cout << "Derecha\n";
-            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(20, 0, 0)));
+            _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -1)));
             break;
         default:
             break;

@@ -22,4 +22,6 @@ private:
 	Vector3* _velocity;
 	bool slowedDown = false;
 	bool onTheFloor = false;
+	int maxVelocity = 20;
+	float visionAngle = 0;
 };
