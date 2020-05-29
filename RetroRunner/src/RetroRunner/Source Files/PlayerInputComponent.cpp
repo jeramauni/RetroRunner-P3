@@ -74,7 +74,7 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
             break;
         case OIS::KC_SPACE:
             //std::cout << "Barra Espaciadora\n";
-            _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 5000, 0)));
+            _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 500, 0)));
             break;
         default:
             break;
