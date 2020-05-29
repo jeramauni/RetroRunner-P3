@@ -61,7 +61,6 @@ void Game::GenerateMainScene() {
 
 void Game::GenerateMenuScene() {
 	_weM->generateScene("menu", Vector4{ 0.8, 0.8, 0.8, 0.8 });
-
 	_weM->setGUIVisible(true);
 	_weM->loadLayout("EmptyWindow");
 
