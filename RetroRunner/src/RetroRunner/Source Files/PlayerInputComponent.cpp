@@ -10,7 +10,6 @@
 #include "Container.h"
 #include "ComponentFactory.h"
 
-#include <iostream>
 #include <string>
 
 CREATE_REGISTER(PlayerInput);
@@ -57,27 +56,21 @@ bool PlayerInputListener::keyPressed(const OIS::KeyEvent& ke) {
     if (_owner->hasComponent("PlayerInput")) {
         switch (ke.key) {
         case OIS::KC_W:
-            //std::cout << "Adelante\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(1, 0, 0)));
             break;
         case OIS::KC_S:
-            //std::cout << "Atras\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-1, 0, 0)));
             break;
         case OIS::KC_A:
-            //std::cout << "Izquierda\n"; 
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -1)));
             break;
         case OIS::KC_D:
-            //std::cout << "Derecha\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 1)));
             break;
         case OIS::KC_Q:
-            //std::cout << "Derecha\n";
             _owner->localSend(this, msg::Hability(msg::Player, msg::Broadcast, "Dash"));
             break;
         case OIS::KC_SPACE:
-            //std::cout << "Barra Espaciadora\n";
             _owner->localSend(this, msg::Jump(msg::Player, msg::Broadcast, Vector3(0, 500, 0)));
             break;
         default:
@@ -91,19 +84,15 @@ bool PlayerInputListener::keyReleased(const OIS::KeyEvent& ke) {
     if (_owner->hasComponent("PlayerInput")) {
         switch (ke.key) {
         case OIS::KC_W:
-            //std::cout << "Adelante back\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(-1, 0, 0)));
             break;
         case OIS::KC_S:
-            //std::cout << "Atras\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(1, 0, 0)));
             break;
         case OIS::KC_A:
-            //std::cout << "Izquierda\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, 1)));
             break;
         case OIS::KC_D:
-            //std::cout << "Derecha\n";
             _owner->localSend(this, msg::Move(msg::Player, msg::Broadcast, Vector3(0, 0, -1)));
             break;
         default:

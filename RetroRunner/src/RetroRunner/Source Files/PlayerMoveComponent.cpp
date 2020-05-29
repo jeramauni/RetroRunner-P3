@@ -94,6 +94,7 @@ void PlayerMoveComponent::receive(Container* c, const msg::Message& _msg) {
 	}
 	case msg::COLISION: {
 		const msg::Colision _m = static_cast<const msg::Colision&>(_msg);
+		//_m.
 		if (_m._type == "AnclaEffect") {
 			slowedDown = _m._doIt;
 			if (slowedDown) maxVelocity = maxVelocity / 2;
