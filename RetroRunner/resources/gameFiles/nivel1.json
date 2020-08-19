@@ -16,7 +16,7 @@
           "playEvent": "0"
         }
       ]
-    },   
+    },
 
     {
       "id": "none",
@@ -243,6 +243,31 @@
         },
         {
           "id": "AnclaEffect"
+        }
+      ]
+    },
+
+    {
+      "id": "Ancla",
+      "components": [
+        {
+          "id": "Transform",
+          "positionT": "0/0/0",
+          "scaleT": "1/1/1",
+          "rotationT": "0/0/0"
+        },
+        {
+          "id": "Render",
+          "Mesh": "Slow1",
+          "Material": "Verde1"
+        },
+        {
+          "id": "Physics",
+          "gravity": "true",
+          "collSize": "50/50/50"
+        },
+        {
+          "id": "MovingAnclaEffect"
         }
       ]
     },

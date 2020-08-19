@@ -25,7 +25,6 @@ protected:
 	PhysicsComponent* _pc;
 	double effectTime = 3;
 	bool buffActive = false;
-private:
 	double secondsPassed;
 	clock_t startTime;
 };
