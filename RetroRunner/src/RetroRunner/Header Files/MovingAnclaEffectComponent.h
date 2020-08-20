@@ -8,8 +8,9 @@ public:
 	~MovingAnclaEffectComponent() {};
 
 	void update(Container* c, float time);
-
+	void rotateOncePerChange(Container* c);
 private:
 	bool dir = true;
+	bool once = false;
 };
 

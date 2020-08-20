@@ -258,8 +258,8 @@
         },
         {
           "id": "Render",
-          "Mesh": "Slow1",
-          "Material": "Verde1"
+          "Mesh": "Anchor",
+          "Material": "Anchor"
         },
         {
           "id": "Physics",

@@ -16,11 +16,19 @@ MovingAnclaEffectComponent::MovingAnclaEffectComponent(Container* e) : Collision
 
 void MovingAnclaEffectComponent::update(Container* c, float time)
 {
-	if (_pc->position().z > 2400 && dir) dir = false;
-	else if(_pc->position().z < 1850 && !dir) dir = true;
+	if (!once) {
+		once = true;
+		rotateOncePerChange(c);
+	}
+	if (_pc->position().z > 2400 && dir) { dir = false; rotateOncePerChange(c); }
+	else if (_pc->position().z < 1850 && !dir) { dir = true; rotateOncePerChange(c); }
 
-	if(dir)_pc->move(Vector3(0, 0, 10));
-	else _pc->move(Vector3(0, 0, -10));
+	if (dir) {
+		_pc->move(Vector3(0, 0, 10));
+	}
+	else {
+		_pc->move(Vector3(0, 0, -10));
+	}
 
 	if (_pc->isColliding() && !buffActive)
 	{
@@ -38,4 +46,9 @@ void MovingAnclaEffectComponent::update(Container* c, float time)
 			undoEffect();
 		}
 	}
+}
+
+void MovingAnclaEffectComponent::rotateOncePerChange(Container* c)
+{
+	c->getNode()->yaw(Ogre::Radian(3.14159));
 }
